@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="deptId" />
+          </Key>
+          <Property Name="deptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deptName" Type="nvarchar(max)" />
+          <Property Name="deptDes" Type="nvarchar(max)" />
+          <Property Name="ismsId" Type="int" />
+        </EntityType>
+        <EntityType Name="ExternalContext">
+          <Key>
+            <PropertyRef Name="externalContextId" />
+          </Key>
+          <Property Name="externalContextId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="socialDes" Type="nvarchar(max)" />
+          <Property Name="culturalDes" Type="nvarchar(max)" />
+          <Property Name="politicalDes" Type="nvarchar(max)" />
+          <Property Name="regulatoryDes" Type="nvarchar(max)" />
+          <Property Name="legalDes" Type="nvarchar(max)" />
+          <Property Name="financialDes" Type="nvarchar(max)" />
+          <Property Name="technologicalDes" Type="nvarchar(max)" />
+          <Property Name="naturalDes" Type="nvarchar(max)" />
+          <Property Name="competitiveDes" Type="nvarchar(max)" />
+          <Property Name="keyDriversDes" Type="nvarchar(max)" />
+          <Property Name="externalStakeholdersDes" Type="nvarchar(max)" />
+          <Property Name="contractualRelationshipsDes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InterestedParties">
+          <Key>
+            <PropertyRef Name="interestedPartyId" />
+          </Key>
+          <Property Name="interestedPartyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="interestedPartyName" Type="nvarchar(max)" />
+          <Property Name="requirementsDes" Type="nvarchar(max)" />
+          <Property Name="ismsId" Type="int" />
+        </EntityType>
+        <EntityType Name="InterfacesDependencies">
+          <Key>
+            <PropertyRef Name="interfaceId" />
+          </Key>
+          <Property Name="interfaceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="interfaceDes" Type="nvarchar(max)" />
+          <Property Name="otherOrgName" Type="nvarchar(max)" />
+          <Property Name="ismsId" Type="int" />
+        </EntityType>
+        <EntityType Name="InternalContext">
+          <Key>
+            <PropertyRef Name="internalContextId" />
+          </Key>
+          <Property Name="internalContextId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="governanceDes" Type="nvarchar(max)" />
+          <Property Name="organizationalStructureDes" Type="nvarchar(max)" />
+          <Property Name="rolesDes" Type="nvarchar(max)" />
+          <Property Name="policiesObjectivesStrategyDes" Type="nvarchar(max)" />
+          <Property Name="capabilitiesDes" Type="nvarchar(max)" />
+          <Property Name="internalStakeholdersDes" Type="nvarchar(max)" />
+          <Property Name="organizationCultureDes" Type="nvarchar(max)" />
+          <Property Name="standardsDes" Type="nvarchar(max)" />
+          <Property Name="contractualRelationDes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="IsmsScope">
+          <Key>
+            <PropertyRef Name="ismsId" />
+          </Key>
+          <Property Name="ismsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personalDes" Type="nvarchar(max)" />
+          <Property Name="scopeExclusionsBoundaries" Type="nvarchar(max)" />
+          <Property Name="internalContextId" Type="int" />
+          <Property Name="externalContextId" Type="int" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="organizationId" />
+          </Key>
+          <Property Name="organizationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="organizationName" Type="nvarchar(max)" />
+          <Property Name="organizationDes" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="website" Type="nvarchar(max)" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="projectId" />
+          </Key>
+          <Property Name="projectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectName" Type="nvarchar(max)" />
+          <Property Name="organizationId" Type="int" />
+          <Property Name="ismsId" Type="int" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="siteId" />
+          </Key>
+          <Property Name="siteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="siteName" Type="nvarchar(max)" />
+          <Property Name="siteDes" Type="nvarchar(max)" />
+          <Property Name="ismsId" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="tokenId" />
+          </Key>
+          <Property Name="tokenId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="token" Type="nvarchar(max)" />
+          <Property Name="createdAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="int" />
+          <Property Name="tokenId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="projectId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Department_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterestedParties_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="InterestedParties" Type="Self.InterestedParties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="InterestedParties">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterfacesDependencies_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="InterfacesDependencies" Type="Self.InterfacesDependencies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="InterfacesDependencies">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IsmsScope_ExternalContext">
+          <End Role="ExternalContext" Type="Self.ExternalContext" Multiplicity="0..1" />
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalContext">
+              <PropertyRef Name="externalContextId" />
+            </Principal>
+            <Dependent Role="IsmsScope">
+              <PropertyRef Name="externalContextId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IsmsScope_InternalContext">
+          <End Role="InternalContext" Type="Self.InternalContext" Multiplicity="0..1" />
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalContext">
+              <PropertyRef Name="internalContextId" />
+            </Principal>
+            <Dependent Role="IsmsScope">
+              <PropertyRef Name="internalContextId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="organizationId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="organizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Site" Type="Self.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Token">
+          <End Role="Token" Type="Self.Token" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Token">
+              <PropertyRef Name="tokenId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="tokenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProject_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="projectId" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="projectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProject_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExternalContext" EntityType="Self.ExternalContext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterestedParties" EntityType="Self.InterestedParties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InterfacesDependencies" EntityType="Self.InterfacesDependencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternalContext" EntityType="Self.InternalContext" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IsmsScope" EntityType="Self.IsmsScope" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProject" EntityType="Self.UserProject" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Department_IsmsScope" Association="Self.FK_Department_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterestedParties_IsmsScope" Association="Self.FK_InterestedParties_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+            <End Role="InterestedParties" EntitySet="InterestedParties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterfacesDependencies_IsmsScope" Association="Self.FK_InterfacesDependencies_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+            <End Role="InterfacesDependencies" EntitySet="InterfacesDependencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IsmsScope_ExternalContext" Association="Self.FK_IsmsScope_ExternalContext">
+            <End Role="ExternalContext" EntitySet="ExternalContext" />
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IsmsScope_InternalContext" Association="Self.FK_IsmsScope_InternalContext">
+            <End Role="InternalContext" EntitySet="InternalContext" />
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_IsmsScope" Association="Self.FK_Project_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Organization" Association="Self.FK_Project_Organization">
+            <End Role="Organization" EntitySet="Organization" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_IsmsScope" Association="Self.FK_Site_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScope" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Token" Association="Self.FK_User_Token">
+            <End Role="Token" EntitySet="Token" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProject_Project" Association="Self.FK_UserProject_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="UserProject" EntitySet="UserProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProject_User" Association="Self.FK_UserProject_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProject" EntitySet="UserProject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="deptId" />
+          </Key>
+          <Property Name="deptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deptName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="deptDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ismsId" Type="Int32" />
+          <NavigationProperty Name="IsmsScope" Relationship="Self.FK_Department_IsmsScope" FromRole="Department" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="ExternalContext">
+          <Key>
+            <PropertyRef Name="externalContextId" />
+          </Key>
+          <Property Name="externalContextId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="socialDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="culturalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="politicalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="regulatoryDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="legalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="financialDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="technologicalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="naturalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="competitiveDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="keyDriversDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="externalStakeholdersDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contractualRelationshipsDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IsmsScopes" Relationship="Self.FK_IsmsScope_ExternalContext" FromRole="ExternalContext" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="InterestedParty">
+          <Key>
+            <PropertyRef Name="interestedPartyId" />
+          </Key>
+          <Property Name="interestedPartyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="interestedPartyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="requirementsDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ismsId" Type="Int32" />
+          <NavigationProperty Name="IsmsScope" Relationship="Self.FK_InterestedParties_IsmsScope" FromRole="InterestedParties" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="InterfacesDependency">
+          <Key>
+            <PropertyRef Name="interfaceId" />
+          </Key>
+          <Property Name="interfaceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="interfaceDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="otherOrgName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ismsId" Type="Int32" />
+          <NavigationProperty Name="IsmsScope" Relationship="Self.FK_InterfacesDependencies_IsmsScope" FromRole="InterfacesDependencies" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="InternalContext">
+          <Key>
+            <PropertyRef Name="internalContextId" />
+          </Key>
+          <Property Name="internalContextId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="governanceDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="organizationalStructureDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rolesDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="policiesObjectivesStrategyDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="capabilitiesDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="internalStakeholdersDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="organizationCultureDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="standardsDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contractualRelationDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="IsmsScopes" Relationship="Self.FK_IsmsScope_InternalContext" FromRole="InternalContext" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="IsmsScope">
+          <Key>
+            <PropertyRef Name="ismsId" />
+          </Key>
+          <Property Name="ismsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personalDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="scopeExclusionsBoundaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="internalContextId" Type="Int32" />
+          <Property Name="externalContextId" Type="Int32" />
+          <NavigationProperty Name="Departments" Relationship="Self.FK_Department_IsmsScope" FromRole="IsmsScope" ToRole="Department" />
+          <NavigationProperty Name="ExternalContext" Relationship="Self.FK_IsmsScope_ExternalContext" FromRole="IsmsScope" ToRole="ExternalContext" />
+          <NavigationProperty Name="InterestedParties" Relationship="Self.FK_InterestedParties_IsmsScope" FromRole="IsmsScope" ToRole="InterestedParties" />
+          <NavigationProperty Name="InterfacesDependencies" Relationship="Self.FK_InterfacesDependencies_IsmsScope" FromRole="IsmsScope" ToRole="InterfacesDependencies" />
+          <NavigationProperty Name="InternalContext" Relationship="Self.FK_IsmsScope_InternalContext" FromRole="IsmsScope" ToRole="InternalContext" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_IsmsScope" FromRole="IsmsScope" ToRole="Project" />
+          <NavigationProperty Name="Sites" Relationship="Self.FK_Site_IsmsScope" FromRole="IsmsScope" ToRole="Site" />
+        </EntityType>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="organizationId" />
+          </Key>
+          <Property Name="organizationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="organizationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="organizationDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="website" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Organization" FromRole="Organization" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="projectId" />
+          </Key>
+          <Property Name="projectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="organizationId" Type="Int32" />
+          <Property Name="ismsId" Type="Int32" />
+          <NavigationProperty Name="IsmsScope" Relationship="Self.FK_Project_IsmsScope" FromRole="Project" ToRole="IsmsScope" />
+          <NavigationProperty Name="Organization" Relationship="Self.FK_Project_Organization" FromRole="Project" ToRole="Organization" />
+          <NavigationProperty Name="UserProjects" Relationship="Self.FK_UserProject_Project" FromRole="Project" ToRole="UserProject" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="siteId" />
+          </Key>
+          <Property Name="siteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="siteName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="siteDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ismsId" Type="Int32" />
+          <NavigationProperty Name="IsmsScope" Relationship="Self.FK_Site_IsmsScope" FromRole="Site" ToRole="IsmsScope" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="tokenId" />
+          </Key>
+          <Property Name="tokenId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="token1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="createdAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Token" FromRole="Token" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="Int32" />
+          <Property Name="tokenId" Type="Int32" />
+          <NavigationProperty Name="Token" Relationship="Self.FK_User_Token" FromRole="User" ToRole="Token" />
+          <NavigationProperty Name="UserProjects" Relationship="Self.FK_UserProject_User" FromRole="User" ToRole="UserProject" />
+        </EntityType>
+        <EntityType Name="UserProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="projectId" Type="Int32" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_UserProject_Project" FromRole="UserProject" ToRole="Project" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserProject_User" FromRole="UserProject" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Department_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IsmsScope_ExternalContext">
+          <End Role="ExternalContext" Type="Self.ExternalContext" Multiplicity="0..1" />
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalContext">
+              <PropertyRef Name="externalContextId" />
+            </Principal>
+            <Dependent Role="IsmsScope">
+              <PropertyRef Name="externalContextId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterestedParties_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="InterestedParties" Type="Self.InterestedParty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="InterestedParties">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterfacesDependencies_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="InterfacesDependencies" Type="Self.InterfacesDependency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="InterfacesDependencies">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IsmsScope_InternalContext">
+          <End Role="InternalContext" Type="Self.InternalContext" Multiplicity="0..1" />
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternalContext">
+              <PropertyRef Name="internalContextId" />
+            </Principal>
+            <Dependent Role="IsmsScope">
+              <PropertyRef Name="internalContextId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_IsmsScope">
+          <End Role="IsmsScope" Type="Self.IsmsScope" Multiplicity="0..1" />
+          <End Role="Site" Type="Self.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IsmsScope">
+              <PropertyRef Name="ismsId" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="ismsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Organization">
+          <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="organizationId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="organizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProject_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="projectId" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="projectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Token">
+          <End Role="Token" Type="Self.Token" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Token">
+              <PropertyRef Name="tokenId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="tokenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProject_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserProject">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="ExternalContexts" EntityType="Self.ExternalContext" />
+          <EntitySet Name="InterestedParties" EntityType="Self.InterestedParty" />
+          <EntitySet Name="InterfacesDependencies" EntityType="Self.InterfacesDependency" />
+          <EntitySet Name="InternalContexts" EntityType="Self.InternalContext" />
+          <EntitySet Name="IsmsScopes" EntityType="Self.IsmsScope" />
+          <EntitySet Name="Organizations" EntityType="Self.Organization" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Sites" EntityType="Self.Site" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Tokens" EntityType="Self.Token" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserProjects" EntityType="Self.UserProject" />
+          <AssociationSet Name="FK_Department_IsmsScope" Association="Self.FK_Department_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IsmsScope_ExternalContext" Association="Self.FK_IsmsScope_ExternalContext">
+            <End Role="ExternalContext" EntitySet="ExternalContexts" />
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterestedParties_IsmsScope" Association="Self.FK_InterestedParties_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+            <End Role="InterestedParties" EntitySet="InterestedParties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterfacesDependencies_IsmsScope" Association="Self.FK_InterfacesDependencies_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+            <End Role="InterfacesDependencies" EntitySet="InterfacesDependencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IsmsScope_InternalContext" Association="Self.FK_IsmsScope_InternalContext">
+            <End Role="InternalContext" EntitySet="InternalContexts" />
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_IsmsScope" Association="Self.FK_Project_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_IsmsScope" Association="Self.FK_Site_IsmsScope">
+            <End Role="IsmsScope" EntitySet="IsmsScopes" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Organization" Association="Self.FK_Project_Organization">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProject_Project" Association="Self.FK_UserProject_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="UserProject" EntitySet="UserProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Token" Association="Self.FK_User_Token">
+            <End Role="Token" EntitySet="Tokens" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProject_User" Association="Self.FK_UserProject_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserProject" EntitySet="UserProjects" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="testModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="deptId" ColumnName="deptId" />
+                <ScalarProperty Name="deptName" ColumnName="deptName" />
+                <ScalarProperty Name="deptDes" ColumnName="deptDes" />
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalContexts">
+            <EntityTypeMapping TypeName="testModel.ExternalContext">
+              <MappingFragment StoreEntitySet="ExternalContext">
+                <ScalarProperty Name="externalContextId" ColumnName="externalContextId" />
+                <ScalarProperty Name="socialDes" ColumnName="socialDes" />
+                <ScalarProperty Name="culturalDes" ColumnName="culturalDes" />
+                <ScalarProperty Name="politicalDes" ColumnName="politicalDes" />
+                <ScalarProperty Name="regulatoryDes" ColumnName="regulatoryDes" />
+                <ScalarProperty Name="legalDes" ColumnName="legalDes" />
+                <ScalarProperty Name="financialDes" ColumnName="financialDes" />
+                <ScalarProperty Name="technologicalDes" ColumnName="technologicalDes" />
+                <ScalarProperty Name="naturalDes" ColumnName="naturalDes" />
+                <ScalarProperty Name="competitiveDes" ColumnName="competitiveDes" />
+                <ScalarProperty Name="keyDriversDes" ColumnName="keyDriversDes" />
+                <ScalarProperty Name="externalStakeholdersDes" ColumnName="externalStakeholdersDes" />
+                <ScalarProperty Name="contractualRelationshipsDes" ColumnName="contractualRelationshipsDes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterestedParties">
+            <EntityTypeMapping TypeName="testModel.InterestedParty">
+              <MappingFragment StoreEntitySet="InterestedParties">
+                <ScalarProperty Name="interestedPartyId" ColumnName="interestedPartyId" />
+                <ScalarProperty Name="interestedPartyName" ColumnName="interestedPartyName" />
+                <ScalarProperty Name="requirementsDes" ColumnName="requirementsDes" />
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InterfacesDependencies">
+            <EntityTypeMapping TypeName="testModel.InterfacesDependency">
+              <MappingFragment StoreEntitySet="InterfacesDependencies">
+                <ScalarProperty Name="interfaceId" ColumnName="interfaceId" />
+                <ScalarProperty Name="interfaceDes" ColumnName="interfaceDes" />
+                <ScalarProperty Name="otherOrgName" ColumnName="otherOrgName" />
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternalContexts">
+            <EntityTypeMapping TypeName="testModel.InternalContext">
+              <MappingFragment StoreEntitySet="InternalContext">
+                <ScalarProperty Name="internalContextId" ColumnName="internalContextId" />
+                <ScalarProperty Name="governanceDes" ColumnName="governanceDes" />
+                <ScalarProperty Name="organizationalStructureDes" ColumnName="organizationalStructureDes" />
+                <ScalarProperty Name="rolesDes" ColumnName="rolesDes" />
+                <ScalarProperty Name="policiesObjectivesStrategyDes" ColumnName="policiesObjectivesStrategyDes" />
+                <ScalarProperty Name="capabilitiesDes" ColumnName="capabilitiesDes" />
+                <ScalarProperty Name="internalStakeholdersDes" ColumnName="internalStakeholdersDes" />
+                <ScalarProperty Name="organizationCultureDes" ColumnName="organizationCultureDes" />
+                <ScalarProperty Name="standardsDes" ColumnName="standardsDes" />
+                <ScalarProperty Name="contractualRelationDes" ColumnName="contractualRelationDes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IsmsScopes">
+            <EntityTypeMapping TypeName="testModel.IsmsScope">
+              <MappingFragment StoreEntitySet="IsmsScope">
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+                <ScalarProperty Name="personalDes" ColumnName="personalDes" />
+                <ScalarProperty Name="scopeExclusionsBoundaries" ColumnName="scopeExclusionsBoundaries" />
+                <ScalarProperty Name="internalContextId" ColumnName="internalContextId" />
+                <ScalarProperty Name="externalContextId" ColumnName="externalContextId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organizations">
+            <EntityTypeMapping TypeName="testModel.Organization">
+              <MappingFragment StoreEntitySet="Organization">
+                <ScalarProperty Name="organizationId" ColumnName="organizationId" />
+                <ScalarProperty Name="organizationName" ColumnName="organizationName" />
+                <ScalarProperty Name="organizationDes" ColumnName="organizationDes" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="testModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="projectId" ColumnName="projectId" />
+                <ScalarProperty Name="projectName" ColumnName="projectName" />
+                <ScalarProperty Name="organizationId" ColumnName="organizationId" />
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="testModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="siteId" ColumnName="siteId" />
+                <ScalarProperty Name="siteName" ColumnName="siteName" />
+                <ScalarProperty Name="siteDes" ColumnName="siteDes" />
+                <ScalarProperty Name="ismsId" ColumnName="ismsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="testModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="testModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="tokenId" ColumnName="tokenId" />
+                <ScalarProperty Name="token1" ColumnName="token" />
+                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="testModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="tokenId" ColumnName="tokenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProjects">
+            <EntityTypeMapping TypeName="testModel.UserProject">
+              <MappingFragment StoreEntitySet="UserProject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="projectId" ColumnName="projectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

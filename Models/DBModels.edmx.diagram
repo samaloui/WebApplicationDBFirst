@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a42edd7c2fbb42f0b803f7aa7de9fca5" Name="Diagram1">
+        <EntityTypeShape EntityType="testModel.Department" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.ExternalContext" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.InterestedParty" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.InterfacesDependency" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.InternalContext" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.IsmsScope" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.Organization" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.Project" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.Site" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.Token" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.User" Width="1.5" PointX="8.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="testModel.UserProject" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="testModel.FK_Department_IsmsScope" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_IsmsScope_ExternalContext" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_InterestedParties_IsmsScope" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_InterfacesDependencies_IsmsScope" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_IsmsScope_InternalContext" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_Project_IsmsScope" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_Site_IsmsScope" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_Project_Organization" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_UserProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_User_Token" ManuallyRouted="false" />
+        <AssociationConnector Association="testModel.FK_UserProject_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
